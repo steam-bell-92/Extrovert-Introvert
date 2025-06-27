@@ -2,6 +2,9 @@
 
 This project is a simple machine learning app that predicts whether a person is more likely an **Extrovert** or an **Introvert** based on their scores in the **Big Five Personality Traits**.
 
+**Balanced Accuracy Score ≈ 0.91**<br>
+**Score = 0.908**
+
 ## 🧰 Tech Stack
 
 | Tool / Library | Purpose                          |
@@ -44,6 +47,7 @@ Extrovert-Introvert/
 ├── model.joblib                        🔹 # Trained ML model
 ├── requirements.txt                    🔹 # Dependencies
 ├── README.md                           🔹 # You're reading it!
+├── personality_dataset.csv             🔹 # Dataset
 └── Extrovert_Introvert.ipynb           🔹 # Where code's present
 ```
 
