@@ -2,8 +2,8 @@
 
 This project is a simple machine learning app that predicts whether a person is more likely an **Extrovert** or an **Introvert** based on their scores in the **Big Five Personality Traits**.
 
- - **Balanced Accuracy Score ≈ 0.91**<br>
- - **Score = 0.908**
+ - **`Balanced Accuracy Score` ≈ 0.91**<br>
+ - **`Score` = 0.908**
 
  > The webapp is deployed using `Hugging Face`
 
@@ -11,14 +11,14 @@ This project is a simple machine learning app that predicts whether a person is 
 
 | Tool / Library | Purpose                          |
 |----------------|----------------------------------|
-| **NumPy**      | Numerical computations, arrays   |
-| **Pandas**     | Data manipulation & cleaning     |
-| **Matplotlib** | Plotting and visualizing data    |
-| **Seaborn**    | Statistical data visualization   |
-| **Scikit-learn** | Model training and evaluation  |
-| **Joblib**     | Saving and loading the ML model  |
-| **Gradio**     | Building the web-based interface |
-| **Hugging Face Spaces** | Free app hosting        |
+| **`NumPy`**      | Numerical computations, arrays   |
+| **`Pandas`**     | Data manipulation & cleaning     |
+| **`Matplotlib`** | Plotting and visualizing data    |
+| **`Seaborn`**    | Statistical data visualization   |
+| **`Scikit-learn`** | Model training and evaluation  |
+| **`Joblib`**     | Saving and loading the ML model  |
+| **`Gradio`**     | Building the web-based interface |
+| **`Hugging Face Spaces`** | Free app hosting        |
 
 
 ## 🚀 Try the App Live
