@@ -45,12 +45,12 @@ This project is a simple machine learning app that predicts whether a person is 
 ## 📁 Project Structure
 ```
 Extrovert-Introvert/
-├── app.py                              🔹 # Gradio app script
-├── model.joblib                        🔹 # Trained ML model
-├── requirements.txt                    🔹 # Dependencies
-├── README.md                           🔹 # You're reading it!
-├── personality_dataset.csv             🔹 # Dataset
-└── Extrovert_Introvert.ipynb           🔹 # Where code's present
+├── app.py                              🔹 Gradio app script
+├── model.joblib                        🔹 Trained ML model
+├── requirements.txt                    🔹 Dependencies
+├── README.md                           🔹 You're reading it!
+├── personality_dataset.csv             🔹 Dataset
+└── Extrovert_Introvert.ipynb           🔹 Where code's present
 ```
 
 ## 👤 Author
