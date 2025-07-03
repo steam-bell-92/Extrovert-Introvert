@@ -7,6 +7,8 @@ This project is a simple machine learning app that predicts whether a person is 
 
  > The webapp is deployed using `Hugging Face`
 
+---
+
 ## 🧰 Tech Stack
 
 | Tool / Library | Purpose                          |
@@ -20,12 +22,15 @@ This project is a simple machine learning app that predicts whether a person is 
 | **`Gradio`**     | Building the web-based interface |
 | **`Hugging Face Spaces`** | Free app hosting        |
 
+---
 
 ## 🚀 Try the App Live
 
 👉 [**Click here to use the live app on Hugging Face**](https://huggingface.co/spaces/steam-bell-92/Extrovert-Introvert)
 
 > 🔁 Adjust sliders for each personality trait and see your predicted type in real time!
+
+---
 
 ## 🧪 Features Used in Prediction
 
@@ -35,12 +40,16 @@ This project is a simple machine learning app that predicts whether a person is 
 - 💖 Agreeableness (Kindness & Cooperativeness)
 - 🌪️ Neuroticism (Stress Sensitivity)
 
+---
+
 ## 🛠️ How It Works
 
 1. The model was trained in a Google Colab notebook using logistic regression.
 2. Exported using `joblib` and loaded into `app.py`.
 3. Gradio provides the interactive interface with sliders and instant predictions.
 4. Hosted for free via Hugging Face Spaces.
+
+---
 
 ## 📁 Project Structure
 ```
@@ -52,6 +61,8 @@ Extrovert-Introvert/
 ├── personality_dataset.csv             🔹 Dataset
 └── Extrovert_Introvert.ipynb           🔹 Where code's present
 ```
+
+---
 
 ## 👤 Author
 Anuj Kulkarni - aka - steam-bell-92
