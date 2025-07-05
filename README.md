@@ -5,8 +5,9 @@ This project is a simple machine learning app that predicts whether a person is 
  - **`Balanced Accuracy Score` ≈ 0.91**<br>
  - **`Score` = 0.908**
 
- > The webapp is deployed using `Hugging Face`
+⭐ If you find this useful, consider giving it a star!
 
+ > The webapp is deployed using `Hugging Face`
 ---
 
 ## 🧰 Tech Stack
