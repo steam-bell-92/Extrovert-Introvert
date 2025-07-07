@@ -50,6 +50,9 @@ This project is a simple machine learning app that predicts whether a person is 
 3. Gradio provides the interactive interface with sliders and instant predictions.
 4. Hosted for free via Hugging Face Spaces.
 
+> Dataset is from: <a href="https://www.kaggle.com/datasets/rakeshkapilavai/extrovert-vs-introvert-behavior-data">Kaggle</a><br>
+Also the Dataset is uploaded on repo
+
 ---
 
 ## 📁 Project Structure
