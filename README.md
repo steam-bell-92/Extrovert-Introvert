@@ -63,7 +63,8 @@ Extrovert-Introvert/
 ├── requirements.txt                    🔹 Dependencies
 ├── README.md                           🔹 You're reading it!
 ├── personality_dataset.csv             🔹 Dataset
-└── Extrovert_Introvert.ipynb           🔹 Where code's present
+├── Extrovert_Introvert.py              🔹 Python File of ML Workflow
+└── Extrovert_Introvert.ipynb           🔹 ML Workflow
 ```
 
 ---
