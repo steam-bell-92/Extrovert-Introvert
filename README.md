@@ -67,6 +67,8 @@ Extrovert-Introvert/
 |    ├── app.py                              🔹 Gradio app script
 |    └── model.joblib                        🔹 Trained ML model
 |
+├── LICENSE                                  🔹 MIT License
+|
 └── README.md                                🔹 You're reading it!
 
 ```
