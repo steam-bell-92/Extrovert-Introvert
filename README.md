@@ -58,13 +58,17 @@ Also the Dataset is uploaded on repo
 ## 📁 Project Structure
 ```
 Extrovert-Introvert/
-├── app.py                              🔹 Gradio app script
-├── model.joblib                        🔹 Trained ML model
-├── requirements.txt                    🔹 Dependencies
-├── README.md                           🔹 You're reading it!
-├── personality_dataset.csv             🔹 Dataset
-├── extrovert_introvert.py              🔹 Python File of ML Workflow
-└── Extrovert_Introvert.ipynb           🔹 ML Workflow
+|
+├── CODES/
+|    ├── Extrovert_Introvert.ipynb           🔹 ML Workflow
+|    ├── extrovert_introvert.py              🔹 Python File of ML Workflow
+|    └── personality_dataset.csv             🔹 Dataset
+├── WEB/
+|    ├── app.py                              🔹 Gradio app script
+|    └── model.joblib                        🔹 Trained ML model
+|
+└── README.md                                🔹 You're reading it!
+
 ```
 
 ---
