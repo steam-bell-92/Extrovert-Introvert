@@ -164,24 +164,48 @@ def sigmoid(z) :
 
 print("Input as : alone, event, outside, friends, post")
 
-def calculate_z(inputs, coeff):
-  z = 0
-  for i in range(len(inputs)):
-    z += inputs[i] * (coeff[0][i])
+X = df1[[
+    'Time_spent_Alone',
+    'Social_event_attendance',
+    'Going_outside',
+    'Friends_circle_size',
+    'Post_frequency'
+]].values.astype(float)
+y = (df1['Personality'].values == 'Extrovert').astype(float)
 
-  z += intercept
-  return z
+m, n = X.shape
+w = np.zeros(n, dtype=float)
+b = 0.0
+alpha = 0.01
+max_iter = 20000
+tol = 1e-7
+prev_loss = np.inf
 
-alone, event, outside, friends, post = list(map(float, input().split()))
-inputs = [alone, event, outside, friends, post]
-sigmoid_value = sigmoid(calculate_z(inputs, coeff))
+for _ in range(max_iter):
+    z = X.dot(w) + b
+    p = sigmoid(z)
+    loss = -np.mean(y * np.log(p + 1e-15) + (1 - y) * np.log(1 - p + 1e-15))
+    if abs(prev_loss - loss) < tol:
+        break
+    prev_loss = loss
+    error = p - y
+    dw = (X.T @ error) / m
+    db = error.mean()
+    w -= alpha * dw
+    b -= alpha * db
 
-if sigmoid_value < 0.5 :
-  print('Extrovert')
-else :
-  print('Introvert')
+print("Training complete!\n")
 
-print(f"Sigmoid output for input: {sigmoid_value}")
+alone, event, outside, friends, post = 3, 2, 1, 4, 2
+x = np.array([alone, event, outside, friends, post], dtype=float)
+
+z = float(x.dot(w) + b)
+p = float(sigmoid(z))
+label = 'Extrovert' if p >= 0.5 else 'Introvert'
+
+print(f"Input: alone={alone}, event={event}, outside={outside}, friends={friends}, post={post}")
+print(f"Prediction: {label}")
+print(f"Probability: {p:.4f}")
 
 app_code = """
 import gradio as gr
@@ -227,7 +251,3 @@ with zipfile.ZipFile("extrovert_introvert_app.zip", "w") as zipf:
     zipf.write("model.joblib")
     zipf.write("app.py")
     zipf.write("requirements.txt")
-
-from google.colab import files
-files.download("extrovert_introvert_app.zip")
-
