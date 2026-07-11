@@ -1,15 +1,24 @@
-import pandas as pd
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
-import joblib
+from pathlib import Path
 import zipfile
 
+import joblib
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.model_selection import train_test_split
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_PATH = PROJECT_ROOT / "data" / "raw" / "personality_dataset.csv"
+MODEL_PATH = PROJECT_ROOT / "models" / "model.joblib"
+APP_PATH = PROJECT_ROOT / "WEB" / "app.py"
+APP_REQUIREMENTS_PATH = PROJECT_ROOT / "WEB" / "requirements.txt"
+ARCHIVE_PATH = PROJECT_ROOT / "personality_app.zip"
+
 class PersonalityClassifier:
-    def __init__(self, model_path='personality_model.joblib'):
+    def __init__(self, model_path=MODEL_PATH):
         self.model = LogisticRegression()
         self.model_path = model_path
         self.data = None
@@ -140,21 +149,23 @@ class PersonalityClassifier:
         """
         Generates the app.py file with the CORRECT feature inputs.
         """
-        app_code = f"""
+        app_code = """
+from pathlib import Path
+
 import gradio as gr
 import joblib
 import numpy as np
 
-# Load model
-model = joblib.load("{self.model_path}")
+MODEL_PATH = Path(__file__).resolve().parents[1] / "models" / "model.joblib"
+model = joblib.load(MODEL_PATH)
 
 def predict_personality(alone, event, outside, friends, post):
-    # Inputs must match training order: 
+    # Inputs must match training order:
     # ['Time_spent_Alone', 'Social_event_attendance', 'Going_outside', 'Friends_circle_size', 'Post_frequency']
-    
+
     input_array = np.array([[alone, event, outside, friends, post]])
     prediction = model.predict(input_array)[0]
-    
+
     # Sklearn usually maps classes alphabetically if not specified.
     # Assuming standard behavior, but returning raw prediction is safer if string.
     return str(prediction)
@@ -176,17 +187,17 @@ demo = gr.Interface(
 demo.launch()
 """
         # Write files
-        with open("app.py", "w") as f:
+        with open(APP_PATH, "w") as f:
             f.write(app_code)
             
-        with open("requirements.txt", "w") as f:
+        with open(APP_REQUIREMENTS_PATH, "w") as f:
             f.write("gradio\nscikit-learn\nnumpy\njoblib")
             
         # Zip it
-        with zipfile.ZipFile("personality_app.zip", "w") as zipf:
-            zipf.write(self.model_path)
-            zipf.write("app.py")
-            zipf.write("requirements.txt")
+        with zipfile.ZipFile(ARCHIVE_PATH, "w") as zipf:
+            zipf.write(self.model_path, arcname="model.joblib")
+            zipf.write(APP_PATH, arcname="app.py")
+            zipf.write(APP_REQUIREMENTS_PATH, arcname="requirements.txt")
             
         print("App generated and zipped as 'personality_app.zip'")
 
@@ -196,7 +207,7 @@ if __name__ == "__main__":
     
     # create dummy csv for testing if file doesn't exist
     try:
-        classifier.load_and_clean("personality_dataset.csv")
+        classifier.load_and_clean(DATA_PATH)
         classifier.train_sklearn()
         classifier.evaluate()
         
@@ -207,4 +218,4 @@ if __name__ == "__main__":
         classifier.create_gradio_app()
         
     except FileNotFoundError:
-        print("Please upload 'personality_dataset.csv' to run.")
+        print("Please add 'data/raw/personality_dataset.csv' to run.")

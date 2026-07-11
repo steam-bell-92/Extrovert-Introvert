@@ -1,9 +1,12 @@
 
+from pathlib import Path
+
 import gradio as gr
 import joblib
 import numpy as np
 
-model = joblib.load("model.joblib")
+MODEL_PATH = Path(__file__).resolve().parents[1] / "models" / "model.joblib"
+model = joblib.load(MODEL_PATH)
 
 def predict_personality(openness, conscientiousness, extraversion, agreeableness, neuroticism):
     input_array = np.array([[openness, conscientiousness, extraversion, agreeableness, neuroticism]])

@@ -1,81 +1,59 @@
-# 🧠 Extrovert vs Introvert Personality Classifier
+# Extrovert vs Introvert Personality Classifier
 
-This project is a simple machine learning app that predicts whether a person is more likely an **Extrovert** or an **Introvert** based on their scores in the **Big Five Personality Traits**.
+## Overview
 
- - **`Balanced Accuracy Score` ≈ 0.91**<br>
- - **`Score` = 0.908**
+This project predicts whether a person is more likely an extrovert or an introvert from behavior-based features derived from the Big Five personality traits. The analysis, model, and web app remain the same; the repository has been standardized into a cleaner, reproducible layout.
 
-⭐ If you find this useful, consider giving it a star!
+## Problem Statement
 
- > The webapp is deployed using `Hugging Face`
----
+Given a set of personality-related inputs, classify a person as either `Extrovert` or `Introvert` using a logistic regression model trained on the provided dataset.
 
-## 🧰 Tech Stack
+## Dataset
 
-| Tool / Library | Purpose                          |
-|----------------|----------------------------------|
-| **`NumPy`**      | Numerical computations, arrays   |
-| **`Pandas`**     | Data manipulation & cleaning     |
-| **`Matplotlib`** | Plotting and visualizing data    |
-| **`Seaborn`**    | Statistical data visualization   |
-| **`Scikit-learn`** | Model training and evaluation  |
-| **`Joblib`**     | Saving and loading the ML model  |
-| **`Gradio`**     | Building the web-based interface |
-| **`Hugging Face Spaces`** | Free app hosting        |
+Source: Kaggle dataset by Rakesh Kapilavayi, *Extrovert vs Introvert Behavior Data*.
 
----
+The raw dataset is stored in [data/raw/personality_dataset.csv](data/raw/personality_dataset.csv).
 
-## 🚀 Try the App Live
+## Technologies Used
 
-👉 [**Click here to use the live app on Hugging Face**](https://huggingface.co/spaces/steam-bell-92/Extrovert-Introvert)
+- Python
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Joblib
+- Gradio
 
-> 🔁 Adjust sliders for each personality trait and see your predicted type in real time!
+## Project Structure
 
----
+- [data/raw](data/raw) stores the original dataset.
+- [notebooks](notebooks) contains the exploratory notebook.
+- [src](src) contains the training and export script.
+- [models](models) stores the serialized trained model.
+- [WEB](WEB) contains the Gradio app entry point.
+- [images](images) is reserved for README screenshots later.
 
-## 🧪 Features Used in Prediction
+## Workflow
 
-- 🧠 Openness (Creativity & Curiosity)
-- ✅ Conscientiousness (Discipline & Organization)
-- 🔊 Extraversion (Sociability & Energy)
-- 💖 Agreeableness (Kindness & Cooperativeness)
-- 🌪️ Neuroticism (Stress Sensitivity)
+1. Load the dataset from `data/raw`.
+2. Inspect and clean the data.
+3. Run exploratory data analysis and visualizations.
+4. Train a logistic regression model.
+5. Evaluate the model using classification metrics.
+6. Export the trained model and Gradio app assets.
 
----
+## Results
 
-## 🛠️ How It Works
+The existing model performance reported in the project is approximately `0.908` balanced accuracy.
 
-1. The model was trained in a Google Colab notebook using logistic regression.
-2. Exported using `joblib` and loaded into `app.py`.
-3. Gradio provides the interactive interface with sliders and instant predictions.
-4. Hosted for free via Hugging Face Spaces.
+## Future Improvements
 
-> Dataset is from: <a href="https://www.kaggle.com/datasets/rakeshkapilavai/extrovert-vs-introvert-behavior-data">Kaggle (Rakesh Kapilavayi)</a><br>
-Also the Dataset is uploaded on repo
+- Add automated data validation before training.
+- Separate training, evaluation, and export steps into individual commands.
+- Add a lightweight test suite for the data-loading and prediction helpers.
+- Expand documentation with example inputs and screenshots.
 
----
+## License
 
-## 📁 Project Structure
-```
-Extrovert-Introvert/
-|
-├── CODES/
-|    ├── Extrovert_Introvert.ipynb           🔹 ML Workflow
-|    ├── extrovert_introvert.py              🔹 Python File of ML Workflow
-|    └── personality_dataset.csv             🔹 Dataset
-├── WEB/
-|    ├── app.py                              🔹 Gradio app script
-|    └── model.joblib                        🔹 Trained ML model
-|
-├── LICENSE                                  🔹 MIT License
-|
-└── README.md                                🔹 You're reading it!
-
-```
-
----
-
-## 👤 Author
-Anuj Kulkarni - aka - steam-bell-92
-
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+See [LICENSE](LICENSE) for details.
